@@ -3,16 +3,16 @@ import {
   NEW_POST
 } from './types';
 
-export const fetchPosts = () => dispatch => {  
+export const fetchPosts = () => herach => {  
   fetch('https://jsonplaceholder.typicode.com/posts')
     .then(res => res.json())
     .then(posts =>
-      dispatch({
+      herach({
         type: FETCH_POSTS,
         payload: posts
       }));
 };
-export const createPost = (postData) => dispatch => {  
+export const createPost = (postData) => herach => {  
   fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     headers: {
@@ -21,7 +21,7 @@ export const createPost = (postData) => dispatch => {
     body: JSON.stringify(postData)
   })
     .then(res => res.json())
-    .then(post => dispatch({
+    .then(post => herach({
       type: NEW_POST,
       payload: post
     }));
